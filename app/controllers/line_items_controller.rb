@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :decrement]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   after_action :reset_store_view_counter, only: [:create]
 
@@ -64,8 +64,23 @@ class LineItemsController < ApplicationController
     @cart = @line_item.cart
     @line_item.destroy
     respond_to do |format|
+      format.js {}
       format.html { redirect_to @cart, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def decrement
+    @line_item = @cart.remove_product(params[:id])
+    # if @line_item.quantity > 1
+    #   @line_item.quantity -=1
+    #   @line_item.save
+    # elsif @line_item.quantity == 1
+    #   @line_item.destroy
+    # end
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to store_url}
     end
   end
 
