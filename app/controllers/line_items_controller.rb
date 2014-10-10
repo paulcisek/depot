@@ -72,12 +72,9 @@ class LineItemsController < ApplicationController
 
   def decrement
     @line_item = @cart.remove_product(params[:id])
-    # if @line_item.quantity > 1
-    #   @line_item.quantity -=1
-    #   @line_item.save
-    # elsif @line_item.quantity == 1
-    #   @line_item.destroy
-    # end
+    if @line_item
+      @line_item.save
+    end
     respond_to do |format|
       format.js {}
       format.html {redirect_to store_url}
