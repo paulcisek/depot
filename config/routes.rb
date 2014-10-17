@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'store/index'
   post '/line_items/:id', to: 'line_items#decrement'
 
-  resources :products
+  resources :products do
+    get :who_bought, on: :member
+  end
 
   root 'store#index', as: 'store'
 
