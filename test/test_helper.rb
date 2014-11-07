@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def login_as(user)
-    session[:user_id] = user.id
+    session[:user_id] = users(user).id
   end
 
   def logout
