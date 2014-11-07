@@ -1,3 +1,19 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will
+ * include all the files listed below.
+ * 
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
+ * vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any,
+ * can be referenced here using a relative path.
+ * 
+ * You're free to add application-wide styles to this file and they'll appear
+ * at the top of the compiled file, but it's generally better to create a new
+ * file per style scope.
+ * 
+ *= require_self
+ *= require_tree .
+ */
+
 #banner {
   background: #9c9;
   padding: 10px;
@@ -29,18 +45,18 @@
     background: white;
   }
 
-//#START:side
+  //#START:side
   #side {
     float: left;
     padding: 1em 2em;
     width: 13em;
     background: #141;
 
-/* START_HIGHLIGHT */
+    /* START_HIGHLIGHT */
     form, div {
       display: inline;
-    }  
- 
+    }
+
     input {
       font-size: small;
     }
@@ -56,7 +72,7 @@
       }
     }
 
-/* END_HIGHLIGHT */
+    /* END_HIGHLIGHT */
     ul {
       padding: 0;
 
@@ -70,13 +86,15 @@
       }
     }
   }
-//#END:side
+  //#END:side
 }
-.depot_form{
-  fieldset{
+
+//#START:form
+.depot_form {
+  fieldset {
     background: #efe;
 
-    legend{
+    legend {
       color: #dfd;
       background: #141;
       font-family: sans-serif;
@@ -84,8 +102,8 @@
     }
   }
 
-  form{
-    label{
+  form {
+    label {
       width: 5em;
       float: left;
       text-align: right;
@@ -93,14 +111,18 @@
       margin-right: 0.1em;
       display: block;
     }
-    select, textarea, input{
+
+    select, textarea, input {
       margin-left: 0.5em;
     }
-    .submit{
+
+    .submit {
       margin-left: 4em;
     }
-    br{
-      display: none;
+
+    br {
+      display: none
     }
   }
 }
+//#END:form
